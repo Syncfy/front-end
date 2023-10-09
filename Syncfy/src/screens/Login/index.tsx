@@ -8,7 +8,7 @@ const Container = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FFFFFFF;
+  background-color: #ffffff;
 `;
 
 const Logo = styled.Image`
