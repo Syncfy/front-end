@@ -13,11 +13,12 @@ const Input = styled.TextInput`
 
 const Button = styled.TouchableOpacity`
   width: 100%;
-  height: 40px;
+  height: 60px;
   background-color: #820ad1;
-  border-radius: 5px;
+  border-radius: 20px;
   justify-content: center;
   align-items: center;
+  border: 2px solid #000000;
 `;
 
 const ButtonText = styled.Text`
@@ -69,7 +70,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         onChangeText={setPassword}
         secureTextEntry
       />
-      <LoginButton onPress={onLoginPress} text="Entrar" />
+      <LoginButton onPress={onLoginPress} text="LOG IN" />
     </>
   );
 };

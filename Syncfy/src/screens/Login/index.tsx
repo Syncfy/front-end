@@ -9,7 +9,6 @@ const Container = styled.View`
 
 const ContentContainer = styled.View`
   flex: 1;
-  padding: 20px;
   align-items: center;
 `;
 
@@ -19,17 +18,17 @@ const BackgroundImage = styled(ImageBackground)`
 `;
 
 const Logo = styled.Image`
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 `;
 
 const Card = styled.View`
-  width: 334px;
+  width: 360px;
   height: 423px;
-  border: 1px solid black;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
+  border: 2px solid #000000;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
   shadow-opacity: 0.2;
   shadow-radius: 4px;
   shadow-color: #000;
@@ -41,7 +40,7 @@ const Card = styled.View`
 `;
 
 const LoginText = styled.Text`
-  font-size: 18px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
