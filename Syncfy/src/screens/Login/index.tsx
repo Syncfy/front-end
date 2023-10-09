@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import LoginForm from '../../components';
+import {ImageBackground} from 'react-native';
 
 const Container = styled.View`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+  flex: 1;
+`;
+
+const ContentContainer = styled.View`
+  flex: 1;
+  padding: 20px;
   align-items: center;
-  background-color: #ffffff;
+`;
+
+const BackgroundImage = styled(ImageBackground)`
+  flex: 1;
+  resizemode: cover;
 `;
 
 const Logo = styled.Image`
@@ -50,17 +57,22 @@ const Login: React.FC = () => {
 
   return (
     <Container>
-      <Logo source={require('../../assets/images/logo.png')} />
-      <Card>
-        <LoginText>Login</LoginText>
-        <LoginForm
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          onLoginPress={handleLogin}
-        />
-      </Card>
+      <BackgroundImage
+        source={require('../../assets/images/login-background.png')}>
+        <ContentContainer>
+          <Logo source={require('../../assets/images/logo.png')} />
+          <Card>
+            <LoginText>Login</LoginText>
+            <LoginForm
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              onLoginPress={handleLogin}
+            />
+          </Card>
+        </ContentContainer>
+      </BackgroundImage>
     </Container>
   );
 };
