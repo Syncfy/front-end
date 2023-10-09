@@ -40,17 +40,17 @@ const LoginText = styled.Text`
   text-align: center;
 `;
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleLogin = () => {
-    //Lógica de login
+    // Lógica de login
   };
 
   return (
     <Container>
-      <Logo source={require('./src/assets/imagens/logo.png')} />
+      <Logo source={require('../../assets/images/logo.png')} />
       <Card>
         <LoginText>Login</LoginText>
         <LoginForm

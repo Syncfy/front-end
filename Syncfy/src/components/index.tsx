@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+// Adicione os tipos aos componentes e props
 const Input = styled.TextInput`
   width: 100%;
   height: 40px;
@@ -24,7 +25,21 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-const LoginButton = ({onPress, text}) => {
+// Defina os tipos das props para LoginButton e LoginForm
+type LoginButtonProps = {
+  onPress: () => void;
+  text: string;
+};
+
+type LoginFormProps = {
+  email: string;
+  setEmail: (text: string) => void;
+  password: string;
+  setPassword: (text: string) => void;
+  onLoginPress: () => void;
+};
+
+const LoginButton: React.FC<LoginButtonProps> = ({onPress, text}) => {
   return (
     <Button onPress={onPress}>
       <ButtonText>{text}</ButtonText>
@@ -32,7 +47,13 @@ const LoginButton = ({onPress, text}) => {
   );
 };
 
-const LoginForm = ({email, setEmail, password, setPassword, onLoginPress}) => {
+const LoginForm: React.FC<LoginFormProps> = ({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  onLoginPress,
+}) => {
   return (
     <>
       <Input
