@@ -4,8 +4,8 @@ import styled from 'styled-components/native';
 // Tipos dos componentes e props
 const Input = styled.TextInput`
   width: 100%;
-  height: 40px;
-  border: 1px solid #ccc;
+  height: 50px;
+  border: 2px solid #000000;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -14,7 +14,7 @@ const Input = styled.TextInput`
 const Button = styled.TouchableOpacity`
   width: 100%;
   height: 40px;
-  background-color: #00b894;
+  background-color: #820ad1;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
