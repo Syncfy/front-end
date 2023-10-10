@@ -41,9 +41,9 @@ const Card = styled.View`
 
 const LoginText = styled.Text`
   font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
+  color: #000000;
 `;
 
 const Login: React.FC = () => {
