@@ -45,7 +45,8 @@ const ButtonText = styled.Text`
   color: #fff; /* Cor do texto do botão */
 `;
 
-const Home = ({ navigation }) => {
+const Home = ({navigation}) => {
+  //Arrumar tipagem de "navigation".
   return (
     <Container>
       <Logo source={require('../../assets/images/logo.png')} />
