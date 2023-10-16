@@ -5,7 +5,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #fff; /* Cor de fundo branca */
+  background-color: #fff;
 `;
 
 const Logo = styled.Image`
@@ -24,8 +24,8 @@ const WelcomeText = styled.Text`
 
 const SubText = styled.Text`
   font-size: 20px;
-  color: #555; /* Cor do texto menor */
-  margin-top: 10px; /* Espaçamento superior para o texto menor */
+  color: #555;
+  margin-top: 10px;
   text-align: center;
 `;
 
@@ -36,13 +36,13 @@ const LoginButton = styled.TouchableOpacity`
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: 40px; /* Espaçamento superior para o botão de login */
+  margin-top: 40px;
 `;
 
 const ButtonText = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  color: #fff; /* Cor do texto do botão */
+  color: #fff;
 `;
 
 const Home = ({navigation}) => {
