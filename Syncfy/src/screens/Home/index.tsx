@@ -14,6 +14,13 @@ const Logo = styled.Image`
   margin-top: 50px;
 `;
 
+const ButtonContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 180px;
+`;
+
 const WelcomeText = styled.Text`
   font-size: 32px;
   font-weight: bold;
@@ -25,28 +32,16 @@ const WelcomeText = styled.Text`
 const SubText = styled.Text`
   font-size: 20px;
   color: #555;
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
 `;
-
 const LoginButton = styled.TouchableOpacity`
-  width: 40%;
+  width: 48%;
   height: 60px;
   background-color: #820ad1;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-`;
-
-const RegisterButton = styled.TouchableOpacity`
-  width: 40%;
-  height: 60px;
-  background-color: #820ad1;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
 `;
 
 const ButtonText = styled.Text`
@@ -56,24 +51,25 @@ const ButtonText = styled.Text`
 `;
 
 const Home = ({navigation}) => {
-  //Arrumar tipagem de "navigation".
   return (
     <Container>
       <Logo source={require('../../assets/images/logo.png')} />
       <WelcomeText>Seja bem-vindo!</WelcomeText>
       <SubText>Procedência e segurança é com a gente.</SubText>
-      <LoginButton
-        onPress={() => {
-          navigation.navigate('Login');
-        }}>
-        <ButtonText>Login</ButtonText>
-      </LoginButton>
-      <RegisterButton
-        onPress={() => {
-          navigation.navigate('Cadastro');
-        }}>
-        <ButtonText>Cadastro</ButtonText>
-      </RegisterButton>
+      <ButtonContainer>
+        <LoginButton
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
+          <ButtonText>Login</ButtonText>
+        </LoginButton>
+        <LoginButton
+          onPress={() => {
+            navigation.navigate('Cadastro');
+          }}>
+          <ButtonText>Cadastro</ButtonText>
+        </LoginButton>
+      </ButtonContainer>
     </Container>
   );
 };
