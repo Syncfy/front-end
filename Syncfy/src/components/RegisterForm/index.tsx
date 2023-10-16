@@ -7,12 +7,13 @@ const Input = styled.TextInput`
   border: 2px solid #000000;
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
 const Button = styled.TouchableOpacity`
   width: 100%;
   height: 60px;
+  margin-top: 30px;
   background-color: #820ad1;
   border-radius: 20px;
   justify-content: center;
@@ -28,7 +29,7 @@ const ButtonText = styled.Text`
 const CheckboxContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 60px;
 `;
 
 const Checkbox = styled.View`
@@ -107,7 +108,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         <Checkbox />
         <Label>I agree to the terms and conditions</Label>
       </CheckboxContainer>
-      <LoginButton onPress={onLoginPress} text="LOG IN" />
+      <LoginButton onPress={onLoginPress} text="CADASTRAR" />
     </>
   );
 };

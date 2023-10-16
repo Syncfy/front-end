@@ -23,8 +23,8 @@ const Logo = styled.Image`
 `;
 
 const Card = styled.View`
-  width: 360px;
-  height: 423px;
+  width: 330px;
+  height: 385px;
   border: 2px solid #000000;
   background-color: #ffffff;
   border-radius: 20px;
@@ -41,7 +41,7 @@ const Card = styled.View`
 
 const LoginText = styled.Text`
   font-size: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 370px;
   text-align: center;
   color: #000000;
 `;
@@ -59,7 +59,7 @@ const Register: React.FC = () => {
       <BackgroundImage
         source={require('../../assets/images/login-background.png')}>
         <ContentContainer>
-          <Logo source={require('../../assets/images/logo.png')} />
+          {/* <Logo source={require('../../assets/images/logo.png')} /> */}
           <Card>
             <LoginText>Cadastro</LoginText>
             <RegisterForm
