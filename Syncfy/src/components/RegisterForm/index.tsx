@@ -25,6 +25,24 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
+const CheckboxContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+`;
+
+const Checkbox = styled.View`
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  margin-right: 10px;
+`;
+
+const Label = styled.Text`
+  font-size: 16px;
+`;
+
 type LoginButtonProps = {
   onPress: () => void;
   text: string;
@@ -35,6 +53,12 @@ type RegisterFormProps = {
   setEmail: (text: string) => void;
   password: string;
   setPassword: (text: string) => void;
+  cnpj: string;
+  setCnpj: (text: string) => void;
+  phone: string;
+  setPhone: (text: string) => void;
+  agreeToTerms: boolean;
+  setAgreeToTerms: (value: boolean) => void;
   onLoginPress: () => void;
 };
 
@@ -51,6 +75,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
   setEmail,
   password,
   setPassword,
+  cnpj,
+  setCnpj,
+  phone,
+  setPhone,
   onLoginPress,
 }) => {
   return (
@@ -68,6 +96,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         onChangeText={setPassword}
         secureTextEntry
       />
+      <Input placeholder="CNPJ" value={cnpj} onChangeText={setCnpj} />
+      <Input
+        placeholder="Telefone"
+        value={phone}
+        onChangeText={setPhone}
+        keyboardType="phone-pad"
+      />
+      <CheckboxContainer>
+        <Checkbox />
+        <Label>I agree to the terms and conditions</Label>
+      </CheckboxContainer>
       <LoginButton onPress={onLoginPress} text="LOG IN" />
     </>
   );
