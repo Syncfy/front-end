@@ -21,8 +21,34 @@ export default function StackComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen
+          name="Home"
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerShown: false,
+          }}
+          component={Home}
+        />
+        <Stack.Screen
+          name="Login"
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerShown: true,
+          }}
+          component={Login}
+        />
+        <Stack.Screen
+          name="Cadastro"
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerShown: true,
+          }}
+          /* Change to register component */
+          component={Login}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
