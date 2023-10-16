@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
-import LoginForm from '../../components';
+import LoginForm from '../../components/LoginForm';
 import {ImageBackground} from 'react-native';
 
 const Container = styled.View`
