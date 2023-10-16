@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
-import LoginForm from '../../components/LoginForm';
+import RegisterForm from '../../components/RegisterForm';
 import {ImageBackground} from 'react-native';
 
 const Container = styled.View`
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
           <Logo source={require('../../assets/images/logo.png')} />
           <Card>
             <LoginText>Login</LoginText>
-            <LoginForm
+            <RegisterForm
               email={email}
               setEmail={setEmail}
               password={password}

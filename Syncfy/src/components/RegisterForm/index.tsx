@@ -30,7 +30,7 @@ type LoginButtonProps = {
   text: string;
 };
 
-type LoginFormProps = {
+type RegisterFormProps = {
   email: string;
   setEmail: (text: string) => void;
   password: string;
@@ -46,7 +46,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({onPress, text}) => {
   );
 };
 
-const LoginForm: React.FC<LoginFormProps> = ({
+const RegisterForm: React.FC<RegisterFormProps> = ({
   email,
   setEmail,
   password,
@@ -73,4 +73,4 @@ const LoginForm: React.FC<LoginFormProps> = ({
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
