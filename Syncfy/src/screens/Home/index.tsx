@@ -30,10 +30,20 @@ const SubText = styled.Text`
 `;
 
 const LoginButton = styled.TouchableOpacity`
-  width: 80%;
+  width: 40%;
   height: 60px;
   background-color: #820ad1;
-  border-radius: 20px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+`;
+
+const RegisterButton = styled.TouchableOpacity`
+  width: 40%;
+  height: 60px;
+  background-color: #820ad1;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
@@ -56,8 +66,14 @@ const Home = ({navigation}) => {
         onPress={() => {
           navigation.navigate('Login');
         }}>
-        <ButtonText>Fazer login</ButtonText>
+        <ButtonText>Login</ButtonText>
       </LoginButton>
+      <RegisterButton
+        onPress={() => {
+          navigation.navigate('Cadastro');
+        }}>
+        <ButtonText>Cadastro</ButtonText>
+      </RegisterButton>
     </Container>
   );
 };

@@ -7,6 +7,7 @@ import {
 
 import Home from '../screens/Home';
 import Login from '../screens/Login';
+import Register from '../screens/Register';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,8 +47,7 @@ export default function StackComponent() {
             headerTransparent: true,
             headerShown: true,
           }}
-          /* Change to register component */
-          component={Login}
+          component={Register}
         />
       </Stack.Navigator>
     </NavigationContainer>

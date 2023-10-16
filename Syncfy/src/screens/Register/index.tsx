@@ -46,7 +46,7 @@ const LoginText = styled.Text`
   color: #000000;
 `;
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -61,7 +61,7 @@ const Login: React.FC = () => {
         <ContentContainer>
           <Logo source={require('../../assets/images/logo.png')} />
           <Card>
-            <LoginText>Login</LoginText>
+            <LoginText>Cadastro</LoginText>
             <RegisterForm
               email={email}
               setEmail={setEmail}
@@ -76,4 +76,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;
