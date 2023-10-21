@@ -39,7 +39,7 @@ const LoginButton = styled.TouchableOpacity`
   width: 48%;
   height: 60px;
   background-color: #820ad1;
-  border-radius: 10px;
+  border-radius: 20px;
   justify-content: center;
   align-items: center;
 `;
