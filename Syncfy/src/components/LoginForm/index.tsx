@@ -11,16 +11,16 @@ const Input = styled.TextInput`
 `;
 
 const Button = styled.TouchableOpacity`
-  width: 48%;
-  height: 60px;
-  background-color: #820ad1;
-  border-radius: 20px;
+  width: 88%;
+  height: 56px;
+  background-color: #52d974;
+  border-radius: 12px;
   justify-content: center;
   align-items: center;
 `;
 
 const ButtonText = styled.Text`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
 `;

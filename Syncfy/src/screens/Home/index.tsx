@@ -36,7 +36,7 @@ const SubText = styled.Text`
   text-align: center;
 `;
 
-const LoginButton = styled.TouchableOpacity`
+const Button = styled.TouchableOpacity`
   width: 48%;
   height: 60px;
   background-color: #52d974;
@@ -58,18 +58,18 @@ const Home = ({navigation}) => {
       <WelcomeText>Seja bem-vindo!</WelcomeText>
       <SubText>Procedência e segurança é com a gente.</SubText>
       <ButtonContainer>
-        <LoginButton
+        <Button
           onPress={() => {
             navigation.navigate('Login');
           }}>
           <ButtonText>Login</ButtonText>
-        </LoginButton>
-        <LoginButton
+        </Button>
+        <Button
           onPress={() => {
             navigation.navigate('Cadastro');
           }}>
           <ButtonText>Cadastro</ButtonText>
-        </LoginButton>
+        </Button>
       </ButtonContainer>
     </Container>
   );
