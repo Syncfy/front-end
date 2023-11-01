@@ -35,10 +35,11 @@ const SubText = styled.Text`
   margin-top: 20px;
   text-align: center;
 `;
+
 const LoginButton = styled.TouchableOpacity`
   width: 48%;
   height: 60px;
-  background-color: #820ad1;
+  background-color: #52d974;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
