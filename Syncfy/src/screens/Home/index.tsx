@@ -40,7 +40,7 @@ const Button = styled.TouchableOpacity`
   width: 48%;
   height: 60px;
   background-color: #52d974;
-  border-radius: 20px;
+  border-radius: 12px;
   justify-content: center;
   align-items: center;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Input = styled.TextInput`
-  width: 100%;
+  width: 88%;
   height: 50px;
   border: 2px solid #000000;
   border-radius: 5px;
