@@ -10,6 +10,7 @@ const Container = styled.View`
 const ContentContainer = styled.View`
   flex: 1;
   align-items: center;
+  padding: 20px;
 `;
 
 const BackgroundImage = styled(ImageBackground)`
@@ -20,14 +21,15 @@ const BackgroundImage = styled(ImageBackground)`
 const Logo = styled.Image`
   width: 120px;
   height: 120px;
+  margin-bottom: 150px;
 `;
 
-// const LoginText = styled.Text`
-//   font-size: 40px;
-//   margin-bottom: 30px;
-//   text-align: center;
-//   color: #000000;
-// `;
+const LoginText = styled.Text`
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #52d974;
+`;
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -43,7 +45,7 @@ const Login: React.FC = () => {
         source={require('../../assets/images/white-background.png')}>
         <ContentContainer>
           <Logo source={require('../../assets/images/logo.png')} />
-          {/* <LoginText>Login</LoginText> */}
+          <LoginText>Login</LoginText>
           <LoginForm
             email={email}
             setEmail={setEmail}
