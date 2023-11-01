@@ -40,7 +40,7 @@ const Login: React.FC = () => {
   return (
     <Container>
       <BackgroundImage
-        source={require('../../assets/images/login-background.png')}>
+        source={require('../../assets/images/white-background.png')}>
         <ContentContainer>
           <Logo source={require('../../assets/images/logo.png')} />
           {/* <LoginText>Login</LoginText> */}
