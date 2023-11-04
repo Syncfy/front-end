@@ -4,13 +4,11 @@ import styled from 'styled-components/native';
 const Input = styled.TextInput`
   width: 90%;
   height: 50px;
-  borderbottomwidth: 2px;
-  borderbottomcolor: #52d974;
   padding: 10px;
   margin-bottom: 15px;
   font-size: 16px;
   border-radius: 5px;
-  border: 2px solid #52d974;
+  background-color: #ededed;
 `;
 
 const Button = styled.TouchableOpacity`
