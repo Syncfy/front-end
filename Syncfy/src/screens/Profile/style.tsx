@@ -1,0 +1,36 @@
+import styled from 'styled-components/native';
+
+export const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+`;
+
+export const UserProfileImage = styled.Image`
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+`;
+
+export const InputField = styled.TextInput`
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+`;
+
+export const LogoutButton = styled.TouchableOpacity`
+  background-color: #52d974;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+`;
+
+export const LogoutButtonText = styled.Text`
+  color: #fff;
+  text-align: center;
+`;

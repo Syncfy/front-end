@@ -1,10 +1,6 @@
 import React from 'react';
-import {Button, ButtonText, Input} from './style';
-
-type LoginButtonProps = {
-  onPress: () => void;
-  text: string;
-};
+import {Input} from './style';
+import {LoginButton} from '../LoginButton';
 
 type LoginFormProps = {
   email: string;
@@ -12,14 +8,6 @@ type LoginFormProps = {
   password: string;
   setPassword: (text: string) => void;
   onLoginPress: () => void;
-};
-
-const LoginButton: React.FC<LoginButtonProps> = ({onPress, text}) => {
-  return (
-    <Button onPress={onPress}>
-      <ButtonText>{text}</ButtonText>
-    </Button>
-  );
 };
 
 const LoginForm: React.FC<LoginFormProps> = ({
