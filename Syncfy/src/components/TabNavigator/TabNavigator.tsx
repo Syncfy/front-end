@@ -5,7 +5,7 @@ import Portal from '../../screens/Portal';
 import Vendors from '../../screens/Vendors';
 import History from '../../screens/History';
 import Profile from '../../screens/Profile';
-import TabBarIconComponent from './tab-bar-icon';
+import TabBarIconComponent from './TabBarIcon';
 import {tabBarOptions} from './style';
 
 const Tab = createBottomTabNavigator();
