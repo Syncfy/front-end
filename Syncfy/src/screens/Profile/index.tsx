@@ -28,9 +28,7 @@ const UserPage = ({navigation}) => {
   };
 
   // Função para lidar com a edição do campo
-  const handleEdit = field => {
-    // Implemente a lógica para habilitar a edição do campo aqui
-    // Por exemplo, você pode usar um estado para controlar se o campo está em modo de edição
+  const handleEdit = (field: string) => {
     Alert.alert('Editar', `Editar ${field}`);
   };
 
