@@ -4,11 +4,10 @@ import {
   NativeStackNavigationProp,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-
 import Home from '../screens/Home';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
-import Portal from '../screens/Portal';
+import TabNavigator from './tab-navigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,14 +50,14 @@ export default function StackComponent() {
           component={Register}
         />
         <Stack.Screen
-          name="Portal"
+          name="TabNavigator"
           options={{
             title: '',
             headerTransparent: true,
             headerShown: false,
             gestureEnabled: false,
           }}
-          component={Portal}
+          component={TabNavigator}
         />
       </Stack.Navigator>
     </NavigationContainer>

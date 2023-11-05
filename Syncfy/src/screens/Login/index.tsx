@@ -62,7 +62,7 @@ const Login: React.FC<Props> = ({navigation}) => {
           text2: 'Login realizado com sucesso!',
         });
         // Navegar para a tela Portal
-        navigation.navigate('Portal');
+        navigation.navigate('TabNavigator');
       } else {
         Toast.show({
           type: 'error',

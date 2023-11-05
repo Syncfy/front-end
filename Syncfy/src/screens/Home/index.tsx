@@ -15,6 +15,7 @@ export type RootStackParamList = {
   Login: undefined;
   Cadastro: undefined;
   Portal: undefined;
+  TabNavigator: undefined;
 };
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
