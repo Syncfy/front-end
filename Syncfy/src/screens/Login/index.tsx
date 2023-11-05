@@ -10,7 +10,7 @@ import {
 } from './style';
 import Toast from 'react-native-toast-message';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../Home';
+import {RootStackParamList} from '../../types/rock-stack-param-list';
 
 type LoginScreenNavigationProp = StackNavigationProp<
   RootStackParamList,

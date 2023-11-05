@@ -1,4 +1,5 @@
 import React from 'react';
+import {RootStackParamList} from '../../types/rock-stack-param-list';
 import {
   Button,
   ButtonContainer,
@@ -9,14 +10,6 @@ import {
   WelcomeText,
 } from './style';
 import {StackNavigationProp} from '@react-navigation/stack';
-
-export type RootStackParamList = {
-  Home: undefined;
-  Login: undefined;
-  Cadastro: undefined;
-  Portal: undefined;
-  TabNavigator: undefined;
-};
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
