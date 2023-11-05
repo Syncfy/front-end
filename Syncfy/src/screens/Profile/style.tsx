@@ -34,3 +34,16 @@ export const LogoutButtonText = styled.Text`
   color: #fff;
   text-align: center;
 `;
+
+export const InputRow = styled.View`
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 10px;
+`;
+
+export const EditIcon = styled.Image`
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+`;
