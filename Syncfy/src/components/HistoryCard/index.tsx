@@ -1,7 +1,20 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
+import {styles} from './style';
 
-const HistoryCard = ({order}) => {
+interface Order {
+  number: string;
+  value: number;
+  quantity: number;
+  vendor: string;
+  date: string;
+}
+
+interface HistoryCardProps {
+  order: Order;
+}
+
+const HistoryCard: React.FC<HistoryCardProps> = ({order}) => {
   return (
     <View style={styles.card}>
       <Text style={styles.text}>Pedido Nº: {order.number}</Text>
@@ -12,22 +25,5 @@ const HistoryCard = ({order}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#fff',
-    padding: 16,
-    marginVertical: 8,
-    borderRadius: 8,
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    shadowColor: '#000',
-    shadowOffset: {height: 2, width: 0},
-  },
-  text: {
-    fontSize: 14,
-    marginBottom: 4,
-  },
-});
 
 export default HistoryCard;

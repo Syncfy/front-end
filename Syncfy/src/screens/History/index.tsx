@@ -1,6 +1,7 @@
 // History.js
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {ScrollView, View, Text} from 'react-native';
+import {styles} from './style';
 import HistoryCard from '../../components/HistoryCard';
 
 const historyData = [
@@ -9,47 +10,49 @@ const historyData = [
     value: 1532.59,
     quantity: 48,
     vendor: 'Mercado Livre',
-    date: '10/01/2023',
+    date: '01/11/2023',
   },
   {
     number: '35846121',
     value: 2515.84,
     quantity: 15,
     vendor: 'Kabuum',
-    date: '12/01/2023',
+    date: '09/10/2023',
   },
   {
     number: '685146351',
     value: 3215.45,
     quantity: 4,
     vendor: 'Amazon',
-    date: '12/01/2023',
+    date: '8/10/2023',
   },
   {
     number: '8798456321',
     value: 55454.24,
     quantity: 65,
     vendor: 'Kalunga',
-    date: '12/01/2023',
+    date: '15/08/2023',
+  },
+  {
+    number: '8798456321',
+    value: 6451.89,
+    quantity: 15,
+    vendor: 'Amazon',
+    date: '15/02/2023',
   },
 ];
 
 const HistoryPage = () => {
   return (
-    <ScrollView style={styles.container}>
-      {historyData.map((order, index) => (
-        <HistoryCard key={index} order={order} />
-      ))}
-    </ScrollView>
+    <View style={styles.container}>
+      <Text style={styles.title}>Histórico</Text>
+      <ScrollView style={styles.container}>
+        {historyData.map((order, index) => (
+          <HistoryCard key={index.toString()} order={order} />
+        ))}
+      </ScrollView>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f2f2f2',
-    padding: 16,
-  },
-});
 
 export default HistoryPage;
