@@ -3,16 +3,12 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#52D974',
     padding: 16,
   },
-  title: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    marginTop: 16,
-    marginBottom: 10,
-    textAlign: 'center',
-    color: 'black',
-    /* fontFamily: , */
+  titleImage: {
+    width: '100%',
+    height: 150,
+    resizeMode: 'contain',
   },
 });

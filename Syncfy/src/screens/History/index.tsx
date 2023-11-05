@@ -1,6 +1,6 @@
 // History.js
 import React from 'react';
-import {ScrollView, View, Text} from 'react-native';
+import {ScrollView, View, Image} from 'react-native';
 import {styles} from './style';
 import HistoryCard from '../../components/HistoryCard';
 
@@ -45,7 +45,10 @@ const historyData = [
 const HistoryPage = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Histórico</Text>
+      <Image
+        source={require('../../assets/images/historic-title-image.png')}
+        style={styles.titleImage}
+      />
       <ScrollView style={styles.container}>
         {historyData.map((order, index) => (
           <HistoryCard key={index.toString()} order={order} />
