@@ -4,7 +4,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #fff;
 `;
 
@@ -27,7 +27,7 @@ export const LogoutButton = styled.TouchableOpacity`
   background-color: #52d974;
   padding: 10px;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 2px;
 `;
 
 export const LogoutButtonText = styled.Text`
@@ -46,4 +46,11 @@ export const EditIcon = styled.Image`
   width: 20px;
   height: 20px;
   margin-left: 10px;
+`;
+
+export const Title = styled.Text`
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 5px;
 `;

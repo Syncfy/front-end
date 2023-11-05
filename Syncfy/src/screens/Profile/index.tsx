@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Alert, TouchableOpacity} from 'react-native';
+import {Alert, TouchableOpacity, View} from 'react-native';
 import {
   Container,
   UserProfileImage,
   InputField,
   InputRow,
   EditIcon,
+  Title,
 } from './style';
 
 import {LogoutButton} from '../../components/LogoutButton';
@@ -36,60 +37,61 @@ const UserPage = ({navigation}) => {
     <Container>
       <UserProfileImage source={defaultUserImage} />
 
-      <InputRow>
-        <InputField
-          placeholder="Nome"
-          value={name}
-          onChangeText={text => setName(text)}
-        />
-        <TouchableOpacity onPress={() => handleEdit('nome')}>
-          <EditIcon source={editIcon} />
-        </TouchableOpacity>
-      </InputRow>
+      <View>
+        <Title>Nome</Title>
+        <InputRow>
+          <InputField
+            placeholder="Nome"
+            value={name}
+            onChangeText={text => setName(text)}
+          />
+          <TouchableOpacity onPress={() => handleEdit('nome')}>
+            <EditIcon source={editIcon} />
+          </TouchableOpacity>
+        </InputRow>
+      </View>
 
-      <InputRow>
-        <InputField
-          placeholder="Email"
-          value={email}
-          onChangeText={text => setEmail(text)}
-        />
-        <TouchableOpacity onPress={() => handleEdit('email')}>
-          <EditIcon source={editIcon} />
-        </TouchableOpacity>
-      </InputRow>
+      <View>
+        <Title>E-mail</Title>
+        <InputRow>
+          <InputField
+            placeholder="Email"
+            value={email}
+            onChangeText={text => setEmail(text)}
+          />
+          <TouchableOpacity onPress={() => handleEdit('email')}>
+            <EditIcon source={editIcon} />
+          </TouchableOpacity>
+        </InputRow>
+      </View>
 
-      <InputRow>
-        <InputField
-          placeholder="CNPJ"
-          value={cnpj}
-          onChangeText={text => setCnpj(text)}
-        />
-        <TouchableOpacity onPress={() => handleEdit('CNPJ')}>
-          <EditIcon source={editIcon} />
-        </TouchableOpacity>
-      </InputRow>
+      <View>
+        <Title>Telefone</Title>
+        <InputRow>
+          <InputField
+            placeholder="Telefone"
+            value={phone}
+            onChangeText={text => setPhone(text)}
+          />
+          <TouchableOpacity onPress={() => handleEdit('telefone')}>
+            <EditIcon source={editIcon} />
+          </TouchableOpacity>
+        </InputRow>
+      </View>
 
-      <InputRow>
-        <InputField
-          placeholder="Telefone"
-          value={phone}
-          onChangeText={text => setPhone(text)}
-        />
-        <TouchableOpacity onPress={() => handleEdit('telefone')}>
-          <EditIcon source={editIcon} />
-        </TouchableOpacity>
-      </InputRow>
-
-      <InputRow>
-        <InputField
-          placeholder="Endereço"
-          value={address}
-          onChangeText={text => setAddress(text)}
-        />
-        <TouchableOpacity onPress={() => handleEdit('endereço')}>
-          <EditIcon source={editIcon} />
-        </TouchableOpacity>
-      </InputRow>
+      <View>
+        <Title>Endereço</Title>
+        <InputRow>
+          <InputField
+            placeholder="Endereço"
+            value={address}
+            onChangeText={text => setAddress(text)}
+          />
+          <TouchableOpacity onPress={() => handleEdit('endereço')}>
+            <EditIcon source={editIcon} />
+          </TouchableOpacity>
+        </InputRow>
+      </View>
 
       <LogoutButton onPress={handleLogout} text="Logout" />
     </Container>
