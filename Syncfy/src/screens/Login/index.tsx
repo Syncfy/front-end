@@ -15,6 +15,11 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
+  const fakeUser = {
+    email: 'fake@mail.com',
+    password: 'fake1234',
+  };
+
   const handleLogin = () => {
     if (loading) return;
 
@@ -34,7 +39,9 @@ const Login: React.FC = () => {
     setTimeout(() => {
       setLoading(false);
       // Isto é onde você colocaria a resposta da API
-      const success = true; // ou false, baseado na resposta da API
+      /*const success = true;  ou false, baseado na resposta da API */
+      const success =
+        email === fakeUser.email && password === fakeUser.password;
 
       if (success) {
         Toast.show({

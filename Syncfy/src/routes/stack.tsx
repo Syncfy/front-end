@@ -8,6 +8,7 @@ import {
 import Home from '../screens/Home';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
+import Portal from '../screens/Portal';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +49,15 @@ export default function StackComponent() {
             headerShown: true,
           }}
           component={Register}
+        />
+        <Stack.Screen
+          name="Portal"
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerShown: true,
+          }}
+          component={Portal}
         />
       </Stack.Navigator>
     </NavigationContainer>

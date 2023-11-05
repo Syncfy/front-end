@@ -14,7 +14,7 @@ type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   Cadastro: undefined;
-  // outros nomes de tela podem ser adicionados aqui
+  Portal: undefined;
 };
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
