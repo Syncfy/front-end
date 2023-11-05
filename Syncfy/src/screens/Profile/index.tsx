@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 import {Alert} from 'react-native';
-import {
-  Container,
-  UserProfileImage,
-  InputField,
-  LogoutButton,
-  LogoutButtonText,
-} from './style';
+import {Container, UserProfileImage, InputField} from './style';
+
+import {LogoutButton} from '../../components/LogoutButton';
 
 const defaultUserImage = require('../../assets/images/default-profile-image.png');
 
@@ -38,9 +34,7 @@ const UserPage = ({navigation}) => {
         value={address}
         onChangeText={setAddress}
       />
-      <LogoutButton onPress={handleLogout}>
-        <LogoutButtonText>Logout</LogoutButtonText>
-      </LogoutButton>
+      <LogoutButton onPress={handleLogout} text="Logout" />
     </Container>
   );
 };
