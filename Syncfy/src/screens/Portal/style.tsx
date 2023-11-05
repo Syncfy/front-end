@@ -23,6 +23,7 @@ export const SearchInput = styled.TextInput.attrs(() => ({
   border-radius: 22px;
   font-size: 16px;
   flex: 1;
+  margin-right: 26px;
   shadow-color: #000;
   shadow-offset: 0px 2px;
   shadow-opacity: 0.1;
@@ -39,4 +40,16 @@ export const IconContainer = styled.View`
 export const SearchIcon = styled.Image`
   width: 18px;
   height: 18px;
+`;
+
+export const ShoppingCartIconContainer = styled.View`
+  position: absolute;
+  right: 9px;
+  top: 21px;
+  z-index: 1;
+`;
+
+export const ShoppingCartIcon = styled.Image`
+  width: 22px;
+  height: 22px;
 `;

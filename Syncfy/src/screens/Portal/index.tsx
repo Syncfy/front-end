@@ -5,6 +5,8 @@ import {
   SearchInput,
   IconContainer,
   SearchIcon,
+  ShoppingCartIconContainer,
+  ShoppingCartIcon,
 } from './style';
 
 const Portal: React.FC = () => {
@@ -28,6 +30,11 @@ const Portal: React.FC = () => {
           clearButtonMode="while-editing"
         />
       </SearchContainer>
+      <ShoppingCartIconContainer>
+        <ShoppingCartIcon
+          source={require('../../assets/icons/shopping-cart.png')}
+        />
+      </ShoppingCartIconContainer>
     </Container>
   );
 };
