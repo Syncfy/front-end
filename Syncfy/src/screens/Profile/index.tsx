@@ -17,7 +17,6 @@ const editIcon = require('../../assets/icons/edit-active-icon.png');
 const UserPage = ({navigation}) => {
   const [name, setName] = useState('Syncfy LTDA');
   const [email, setEmail] = useState('syncfy@orçamentos.com');
-  const [cnpj, setCnpj] = useState('11.319.526/0001-55');
   const [phone, setPhone] = useState('(11) 3385-8010');
   const [address, setAddress] = useState(
     'Av. Paulista, 1106 - 7º andar - Bela Vista',
