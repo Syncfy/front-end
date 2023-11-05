@@ -7,10 +7,12 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 20,
+    fontSize: 40,
     fontWeight: 'bold',
     marginTop: 16,
-    marginBottom: 16,
+    marginBottom: 10,
     textAlign: 'center',
+    color: 'black',
+    /* fontFamily: , */
   },
 });
