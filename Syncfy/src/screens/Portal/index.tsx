@@ -5,7 +5,7 @@ import {
   SearchInput,
   IconContainer,
   SearchIcon,
-} from './style'; // Import styled components
+} from './style';
 
 const Portal: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
