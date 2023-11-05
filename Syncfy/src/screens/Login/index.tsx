@@ -8,13 +8,49 @@ import {
   Logo,
   ForgotPasswordText,
 } from './style';
+import Toast from 'react-native-toast-message';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = () => {
-    // Lógica de login
+    if (loading) return;
+
+    // Simples validações
+    if (!email || !password) {
+      Toast.show({
+        type: 'error',
+        text1: 'Erro',
+        text2: 'Por favor, insira e-mail e senha.',
+      });
+      return;
+    }
+
+    // Aqui você adicionaria sua lógica de autenticação com o backend
+    setLoading(true);
+    // Simulação de chamada de API
+    setTimeout(() => {
+      setLoading(false);
+      // Isto é onde você colocaria a resposta da API
+      const success = true; // ou false, baseado na resposta da API
+
+      if (success) {
+        Toast.show({
+          type: 'success',
+          text1: 'Sucesso',
+          text2: 'Login realizado com sucesso!',
+        });
+        // navigate to home screen or dashboard
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Erro',
+          text2: 'Credenciais inválidas ou erro de servidor.',
+        });
+      }
+    }, 2000);
   };
 
   const handleForgotPassword = () => {
