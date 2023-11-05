@@ -10,6 +10,8 @@ export const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowColor: '#000',
     shadowOffset: {height: 2, width: 0},
+    borderWidth: 2,
+    borderColor: '#000',
   },
   text: {
     fontSize: 14,
