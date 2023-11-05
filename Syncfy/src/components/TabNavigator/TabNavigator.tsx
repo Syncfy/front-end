@@ -13,6 +13,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={({route}) => ({
+      headerShown: false,
       // eslint-disable-next-line react/no-unstable-nested-components
       tabBarIcon: ({focused}) => (
         <TabBarIconComponent routeName={route.name} focused={focused} />

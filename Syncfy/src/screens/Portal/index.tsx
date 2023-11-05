@@ -32,7 +32,7 @@ const Portal: React.FC = () => {
       </SearchContainer>
       <ShoppingCartIconContainer>
         <ShoppingCartIcon
-          source={require('../../assets/icons/shopping-cart.png')}
+          source={require('../../assets/icons/shopping-cart-icon.png')}
         />
       </ShoppingCartIconContainer>
     </Container>

@@ -4,16 +4,16 @@ export const tabBarOptions = {
   tabBarStyle: {
     backgroundColor: '#fff',
     padding: 5,
-    height: 60,
+    height: 58,
   },
   tabBarLabelStyle: {
-    fontSize: 12,
+    fontSize: 14,
   },
-  tabBarActiveTintColor: '#e91e63',
-  tabBarInactiveTintColor: 'gray',
+  tabBarActiveTintColor: '#52d974',
+  tabBarInactiveTintColor: 'black',
 };
 
 export const IconImage = styled.Image`
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 `;
