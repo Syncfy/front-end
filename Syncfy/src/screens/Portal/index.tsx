@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {Container, SearchContainer, SearchInput} from './style'; // Import styled components
+import {
+  Container,
+  SearchContainer,
+  SearchInput,
+  IconContainer,
+  SearchIcon,
+} from './style'; // Import styled components
 
 const Portal: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,6 +18,9 @@ const Portal: React.FC = () => {
   return (
     <Container>
       <SearchContainer>
+        <IconContainer>
+          <SearchIcon source={require('../../assets/icons/search-icon.png')} />
+        </IconContainer>
         <SearchInput
           value={searchQuery}
           onChangeText={handleSearchChange}
