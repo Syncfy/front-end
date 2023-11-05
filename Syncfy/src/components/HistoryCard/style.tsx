@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    marginBottom: 4,
+    marginBottom: 1,
     color: 'black',
   },
 });
