@@ -7,7 +7,7 @@ import {
 import Home from '../screens/Home';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
-import TabNavigator from './tab-navigator';
+import TabNavigator from '../components/TabNavigator/tab-navigator';
 
 const Stack = createNativeStackNavigator();
 
