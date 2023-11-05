@@ -10,7 +10,7 @@ import {
 } from './style';
 import {StackNavigationProp} from '@react-navigation/stack';
 
-type RootStackParamList = {
+export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   Cadastro: undefined;

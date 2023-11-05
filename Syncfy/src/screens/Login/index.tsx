@@ -9,8 +9,19 @@ import {
   ForgotPasswordText,
 } from './style';
 import Toast from 'react-native-toast-message';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../Home';
 
-const Login: React.FC = () => {
+type LoginScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Login'
+>;
+
+type Props = {
+  navigation: LoginScreenNavigationProp;
+};
+
+const Login: React.FC<Props> = ({navigation}) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -21,8 +32,9 @@ const Login: React.FC = () => {
   };
 
   const handleLogin = () => {
-    if (loading) return;
-
+    if (loading) {
+      return;
+    }
     // Simples validações
     if (!email || !password) {
       Toast.show({
@@ -49,7 +61,8 @@ const Login: React.FC = () => {
           text1: 'Sucesso',
           text2: 'Login realizado com sucesso!',
         });
-        // navigate to home screen or dashboard
+        // Navegar para a tela Portal
+        navigation.navigate('Portal');
       } else {
         Toast.show({
           type: 'error',
@@ -57,7 +70,7 @@ const Login: React.FC = () => {
           text2: 'Credenciais inválidas ou erro de servidor.',
         });
       }
-    }, 2000);
+    }, 150);
   };
 
   const handleForgotPassword = () => {

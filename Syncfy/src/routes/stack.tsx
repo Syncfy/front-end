@@ -37,7 +37,7 @@ export default function StackComponent() {
           options={{
             title: '',
             headerTransparent: true,
-            headerShown: true,
+            headerShown: false,
           }}
           component={Login}
         />
@@ -46,7 +46,7 @@ export default function StackComponent() {
           options={{
             title: '',
             headerTransparent: true,
-            headerShown: true,
+            headerShown: false,
           }}
           component={Register}
         />
@@ -55,7 +55,8 @@ export default function StackComponent() {
           options={{
             title: '',
             headerTransparent: true,
-            headerShown: true,
+            headerShown: false,
+            gestureEnabled: false,
           }}
           component={Portal}
         />
