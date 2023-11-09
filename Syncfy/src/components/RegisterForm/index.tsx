@@ -1,48 +1,29 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import {Button, ButtonText, Checkbox, CheckboxContainer, Input} from './style';
+import { Input } from './style';
+import { CadastroButton } from '../CadastroButton';
 
-const Label = styled.Text`
-  font-size: 16px;
-`;
-
-type LoginButtonProps = {
-  onPress: () => void;
-  text: string;
-};
-
-type RegisterFormProps = {
+type CadastroFormProps = {
   email: string;
   setEmail: (text: string) => void;
-  password: string;
-  setPassword: (text: string) => void;
   cnpj: string;
   setCnpj: (text: string) => void;
-  phone: string;
-  setPhone: (text: string) => void;
-  agreeToTerms: boolean;
-  setAgreeToTerms: (value: boolean) => void;
-  onLoginPress: () => void;
+  password: string;
+  setPassword: (text: string) => void;
+  confirmPassword: string;
+  setConfirmPassword: (text: string) => void;
+  onCadastroPress: () => void;
 };
 
-const LoginButton: React.FC<LoginButtonProps> = ({onPress, text}) => {
-  return (
-    <Button onPress={onPress}>
-      <ButtonText>{text}</ButtonText>
-    </Button>
-  );
-};
-
-const RegisterForm: React.FC<RegisterFormProps> = ({
+const CadastroForm: React.FC<CadastroFormProps> = ({
   email,
   setEmail,
-  password,
-  setPassword,
   cnpj,
   setCnpj,
-  phone,
-  setPhone,
-  onLoginPress,
+  password,
+  setPassword,
+  confirmPassword,
+  setConfirmPassword,
+  onCadastroPress,
 }) => {
   return (
     <>
@@ -54,25 +35,26 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         keyboardType="email-address"
       />
       <Input
+        placeholder="CNPJ"
+        value={cnpj}
+        onChangeText={setCnpj}
+        keyboardType="numeric"
+      />
+      <Input
         placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Input placeholder="CNPJ" value={cnpj} onChangeText={setCnpj} />
       <Input
-        placeholder="Telefone"
-        value={phone}
-        onChangeText={setPhone}
-        keyboardType="phone-pad"
+        placeholder="Confirme sua senha"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        secureTextEntry
       />
-      <CheckboxContainer>
-        <Checkbox />
-        <Label>I agree to the terms and conditions</Label>
-      </CheckboxContainer>
-      <LoginButton onPress={onLoginPress} text="CADASTRAR" />
+      <CadastroButton onPress={onCadastroPress} text="Cadastre-se" />
     </>
   );
 };
 
-export default RegisterForm;
+export default CadastroForm;

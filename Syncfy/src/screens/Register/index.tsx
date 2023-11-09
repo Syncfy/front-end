@@ -1,41 +1,63 @@
 import React, {useState} from 'react';
-import RegisterForm from '../../components/RegisterForm';
+import CadastroForm from '../../components/RegisterForm';
+import {TouchableOpacity} from 'react-native';
 import {
-  BackgroundImage,
-  Card,
   Container,
   ContentContainer,
-  LoginText,
+  BackgroundImage,
+  Logo,
 } from './style';
+import Toast from 'react-native-toast-message';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../types/rock-stack-param-list';
 
-const Register: React.FC = () => {
+type CadastroScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Cadastro'
+>;
+
+type Props = {
+  navigation: CadastroScreenNavigationProp;
+};
+
+const Cadastro: React.FC<Props> = ({navigation}) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleLogin = () => {
-    // Lógica de login
+  const handleCadastro = () => {
+    if (loading) {
+      return;
+    }
+  };
+
+  const handleForgotPassword = () => {
+    // Lógica para esqueci minha senha
+    console.log('Usuário clicou em "Esqueci minha senha"');
   };
 
   return (
     <Container>
       <BackgroundImage
-        source={require('../../assets/images/login-background.png')}>
+        source={require('../../assets/images/white-background.png')}>
         <ContentContainer>
-          {/* <Logo source={require('../../assets/images/logo.png')} /> */}
-          <Card>
-            <LoginText>Cadastro</LoginText>
-            <RegisterForm
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              onLoginPress={handleLogin}
-            />
-          </Card>
+          <Logo source={require('../../assets/images/logo.png')} />
+          <CadastroForm
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            onCadastroPress={handleCadastro} cnpj={''} setCnpj={function (text: string): void {
+              throw new Error('Function not implemented.');
+            } } confirmPassword={''} setConfirmPassword={function (text: string): void {
+              throw new Error('Function not implemented.');
+            } }          />
+          <TouchableOpacity onPress={handleForgotPassword}>
+          </TouchableOpacity>
         </ContentContainer>
       </BackgroundImage>
     </Container>
   );
 };
 
-export default Register;
+export default Cadastro;
