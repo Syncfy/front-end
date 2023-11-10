@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input } from './style';
-import { CadastroButton } from '../CadastroButton';
+import { RegisterButton } from '../RegisterButton';
+import CheckboxRegister from "../CheckboxRegister";
 
-type CadastroFormProps = {
+type RegisterFormProps = {
   email: string;
   setEmail: (text: string) => void;
   cnpj: string;
@@ -11,10 +12,10 @@ type CadastroFormProps = {
   setPassword: (text: string) => void;
   confirmPassword: string;
   setConfirmPassword: (text: string) => void;
-  onCadastroPress: () => void;
+  onRegisterPress: () => void;
 };
 
-const CadastroForm: React.FC<CadastroFormProps> = ({
+const RegisterForm: React.FC<RegisterFormProps> = ({
   email,
   setEmail,
   cnpj,
@@ -23,8 +24,14 @@ const CadastroForm: React.FC<CadastroFormProps> = ({
   setPassword,
   confirmPassword,
   setConfirmPassword,
-  onCadastroPress,
+  onRegisterPress,
 }) => {
+  const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+
+  const handleRegisterPress = () => {
+    onRegisterPress(); // Removemos a validação do CheckBox, então o usuário pode prosseguir.
+  };
+
   return (
     <>
       <Input
@@ -52,9 +59,10 @@ const CadastroForm: React.FC<CadastroFormProps> = ({
         onChangeText={setConfirmPassword}
         secureTextEntry
       />
-      <CadastroButton onPress={onCadastroPress} text="Cadastre-se" />
+      
+      <RegisterButton onPress={handleRegisterPress} text="Cadastre-se" />
     </>
   );
 };
 
-export default CadastroForm;
+export default RegisterForm;

@@ -24,3 +24,4 @@ export const ButtonText = styled.Text`
   font-weight: bold;
   color: #fff;
 `;
+

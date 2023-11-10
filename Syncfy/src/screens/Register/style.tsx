@@ -13,7 +13,7 @@ export const ContentContainer = styled.View`
 
 export const BackgroundImage = styled(ImageBackground)`
   flex: 1;
-  resizemode: cover;
+  resizeMode: cover;
 `;
 
 export const Logo = styled.Image`
