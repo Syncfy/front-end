@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Input } from './style';
 import { RegisterButton } from '../RegisterButton';
 import CheckboxRegister from "../CheckboxRegister";
+import CheckBox from '../CheckboxRegister';
 
 type RegisterFormProps = {
   email: string;
@@ -29,7 +30,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
 
   const handleRegisterPress = () => {
-    onRegisterPress(); // Removemos a validação do CheckBox, então o usuário pode prosseguir.
+    onRegisterPress(); 
   };
 
   return (
@@ -59,7 +60,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         onChangeText={setConfirmPassword}
         secureTextEntry
       />
-      
+      <CheckBox></CheckBox>
       <RegisterButton onPress={handleRegisterPress} text="Cadastre-se" />
     </>
   );
