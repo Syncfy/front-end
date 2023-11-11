@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Input } from './style';
+import { Input, createAccountText } from './style';
 import { RegisterButton } from '../RegisterButton';
-import CheckboxRegister from "../CheckboxRegister";
-import CheckBox from '../CheckboxRegister';
+import CircleInCorner from '../CircleRegister';
+import { Text } from './style';
+ 
 
 type RegisterFormProps = {
   email: string;
@@ -35,6 +36,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 
   return (
     <>
+      <Text>Create Account</Text>
       <Input
         placeholder="Email"
         value={email}
@@ -60,7 +62,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         onChangeText={setConfirmPassword}
         secureTextEntry
       />
-      <CheckBox></CheckBox>
+      <CircleInCorner></CircleInCorner>
       <RegisterButton onPress={handleRegisterPress} text="Cadastre-se" />
     </>
   );
