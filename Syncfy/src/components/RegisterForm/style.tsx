@@ -1,40 +1,41 @@
 import styled from 'styled-components/native';
 
 export const Input = styled.TextInput`
-  width: 100%;
+  width: 90%;
   height: 50px;
-  border: 2px solid #000000;
-  border-radius: 5px;
   padding: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #ededed;
 `;
 
 export const Button = styled.TouchableOpacity`
-  width: 100%;
-  height: 60px;
-  margin-top: 30px;
-  background-color: #820ad1;
-  border-radius: 20px;
+  width: 88%;
+  height: 56px;
+  background-color: #52d974;
+  border-radius: 12px;
   justify-content: center;
   align-items: center;
-  border: 2px solid #000000;
 `;
 
 export const ButtonText = styled.Text`
-  color: #fff;
+  font-size: 20px;
   font-weight: bold;
+  color: #fff;
 `;
 
-export const CheckboxContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-top: 60px;
-`;
-
-export const Checkbox = styled.View`
-  width: 20px;
-  height: 20px;
-  border: 2px solid #000;
-  border-radius: 5px;
-  margin-right: 10px;
+export const createAccountText = {
+  fontSize: 30, 
+  fontWeight: 'bold',
+  textAlign: 'center',
+  marginBottom: 20,
+  color: 'green', 
+};
+export const Text = styled.Text`
+font-size: 42px;
+font-weight: bold;
+padding-bottom: 0px;
+text-align: center;
+color: #52d974;
 `;

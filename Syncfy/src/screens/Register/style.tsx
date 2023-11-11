@@ -8,38 +8,23 @@ export const Container = styled.View`
 export const ContentContainer = styled.View`
   flex: 1;
   align-items: center;
+  padding: 20px;
 `;
 
 export const BackgroundImage = styled(ImageBackground)`
   flex: 1;
-  resizemode: cover;
+  resizeMode: cover;
 `;
 
 export const Logo = styled.Image`
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 `;
 
-export const Card = styled.View`
-  width: 330px;
-  height: 385px;
-  border: 2px solid #000000;
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 25px;
-  shadow-opacity: 0.2;
-  shadow-radius: 4px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-`;
-
-export const LoginText = styled.Text`
-  font-size: 40px;
-  margin-bottom: 370px;
-  text-align: center;
-  color: #000000;
+export const ForgotPasswordText = styled.Text`
+  color: #52d974;
+  margin-top: 20px;
+  text-decoration: underline;
 `;
