@@ -46,7 +46,7 @@ const HistoryPage = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/historic-title-image.png')}
+        source={require('../../assets/images/history-green-title.png')}
         style={styles.titleImage}
       />
       <ScrollView style={styles.container}>

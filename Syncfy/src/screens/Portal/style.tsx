@@ -1,3 +1,4 @@
+import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -53,3 +54,17 @@ export const ShoppingCartIcon = styled.Image`
   width: 22px;
   height: 22px;
 `;
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 16,
+  },
+  titleImage: {
+    width: '100%',
+    height: 130,
+    resizeMode: 'cover',
+    borderRadius: 12,
+  },
+});
