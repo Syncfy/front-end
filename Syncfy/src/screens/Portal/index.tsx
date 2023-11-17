@@ -7,7 +7,10 @@ import {
   SearchIcon,
   ShoppingCartIconContainer,
   ShoppingCartIcon,
+  styles,
 } from './style';
+import {View} from 'react-native';
+import {Image} from 'react-native';
 
 const Portal: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,6 +38,12 @@ const Portal: React.FC = () => {
           source={require('../../assets/icons/shopping-cart-icon.png')}
         />
       </ShoppingCartIconContainer>
+      <View style={styles.container}>
+        <Image
+          source={require('../../assets/images/Syncfy.png')}
+          style={styles.titleImage}
+        />
+      </View>
     </Container>
   );
 };
