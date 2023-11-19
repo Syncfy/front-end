@@ -42,7 +42,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 
   return (
     <>
-      <Text>Create Account</Text>
       <Input
         placeholder="Nome da empresa"
         value={companyName}
