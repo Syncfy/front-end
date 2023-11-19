@@ -20,7 +20,7 @@ export const Logo = styled.Image`
   width: 180px;
   height: 180px;
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 45px;
 `;
 
 export const ForgotPasswordText = styled.Text`
