@@ -8,9 +8,10 @@ import {
   ShoppingCartIconContainer,
   ShoppingCartIcon,
   styles,
+  WelcomeText,
+  WelcomeName,
 } from './style';
-import {View} from 'react-native';
-import {Image} from 'react-native';
+import {View, Image} from 'react-native';
 
 const Portal: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,9 +39,12 @@ const Portal: React.FC = () => {
           source={require('../../assets/icons/shopping-cart-icon.png')}
         />
       </ShoppingCartIconContainer>
+      <WelcomeText>
+        Bem vindo, <WelcomeName>Victor</WelcomeName>
+      </WelcomeText>
       <View style={styles.container}>
         <Image
-          source={require('../../assets/images/Syncfy.png')}
+          source={require('../../assets/images/banner-syncfy.png')}
           style={styles.titleImage}
         />
       </View>
