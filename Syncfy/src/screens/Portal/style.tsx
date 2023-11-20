@@ -57,7 +57,7 @@ export const ShoppingCartIcon = styled.Image`
 
 export const WelcomeText = styled.Text`
   color: #52d974;
-  margin-top: 8px;
+  margin-top: 22px;
   margin-left: 18px;
   font-size: 25px;
   font-weight: bold;
@@ -65,7 +65,13 @@ export const WelcomeText = styled.Text`
 
 export const WelcomeName = styled.Text`
   color: #000000;
-  margin-top: 8px;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
+export const Categories = styled.Text`
+  color: #000000;
+  margin-top: 125px;
   margin-left: 12px;
   font-size: 25px;
   font-weight: bold;
@@ -81,6 +87,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: 175,
     resizeMode: 'cover',
-    borderRadius: 12,
+    borderRadius: 8,
+    shadowColor: 'black',
   },
 });
