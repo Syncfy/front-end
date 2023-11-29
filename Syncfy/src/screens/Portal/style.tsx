@@ -55,6 +55,28 @@ export const ShoppingCartIcon = styled.Image`
   height: 22px;
 `;
 
+export const WelcomeText = styled.Text`
+  color: #52d974;
+  margin-top: 22px;
+  margin-left: 18px;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
+export const WelcomeName = styled.Text`
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
+export const Categories = styled.Text`
+  color: #000000;
+  margin-top: 125px;
+  margin-left: 12px;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -63,8 +85,9 @@ export const styles = StyleSheet.create({
   },
   titleImage: {
     width: '100%',
-    height: 130,
+    height: 175,
     resizeMode: 'cover',
-    borderRadius: 12,
+    borderRadius: 8,
+    shadowColor: 'black',
   },
 });

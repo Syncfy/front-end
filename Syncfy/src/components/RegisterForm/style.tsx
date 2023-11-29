@@ -26,16 +26,16 @@ export const ButtonText = styled.Text`
 `;
 
 export const createAccountText = {
-  fontSize: 30, 
+  fontSize: 30,
   fontWeight: 'bold',
   textAlign: 'center',
   marginBottom: 20,
-  color: 'green', 
+  color: 'green',
 };
 export const Text = styled.Text`
-font-size: 42px;
-font-weight: bold;
-padding-bottom: 0px;
-text-align: center;
-color: #52d974;
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 0px;
+  text-align: center;
+  color: #52d974;
 `;
