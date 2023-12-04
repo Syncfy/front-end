@@ -6,7 +6,6 @@ import {
   ButtonText,
   Container,
   Logo,
-  SubText,
   WelcomeText,
 } from './style';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -22,7 +21,6 @@ const Home: React.FC<Props> = ({navigation}) => {
     <Container>
       <Logo source={require('../../assets/images/logo.png')} />
       <WelcomeText>Seja bem-vindo!</WelcomeText>
-      <SubText>Procedência e segurança é com a gente.</SubText>
       <ButtonContainer>
         <Button
           onPress={() => {

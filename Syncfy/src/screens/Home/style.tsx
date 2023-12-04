@@ -28,13 +28,6 @@ export const WelcomeText = styled.Text`
   color: #000000;
 `;
 
-export const SubText = styled.Text`
-  font-size: 20px;
-  color: #555;
-  margin-top: 20px;
-  text-align: center;
-`;
-
 export const Button = styled.TouchableOpacity`
   width: 48%;
   height: 60px;
