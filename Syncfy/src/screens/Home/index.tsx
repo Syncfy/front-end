@@ -21,7 +21,7 @@ const Home: React.FC<Props> = ({navigation}) => {
   return (
     <Container>
       <Logo source={require('../../assets/images/logo.png')} />
-      <WelcomeText>Seja bem-vindo!</WelcomeText>
+      <WelcomeText>Seja Bem-vindo!</WelcomeText>
       <SubText>Procedência e segurança é com a gente.</SubText>
       <ButtonContainer>
         <Button
