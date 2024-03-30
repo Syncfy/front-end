@@ -56,7 +56,7 @@ const Portal: React.FC = () => {
       </WelcomeText>
       <View style={styles.container}>
         <Image
-          source={require('../../assets/images/banner-syncfy.png')}
+          source={require('../../assets/images/utils/banner-syncfy.png')}
           style={styles.titleImage}
         />
       </View>

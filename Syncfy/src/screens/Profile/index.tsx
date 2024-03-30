@@ -11,7 +11,7 @@ import {
 
 import {LogoutButton} from '../../components/LogoutButton';
 
-const defaultUserImage = require('../../assets/images/default-profile-image.png');
+const defaultUserImage = require('../../assets/images/utils/default-profile-image.png');
 const editIcon = require('../../assets/icons/edit-active-icon.png');
 
 const UserPage = ({navigation}) => {

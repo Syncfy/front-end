@@ -19,7 +19,7 @@ type Props = {
 const Home: React.FC<Props> = ({navigation}) => {
   return (
     <Container>
-      <Logo source={require('../../assets/images/logo.png')} />
+      <Logo source={require('../../assets/images/utils/logo.png')} />
       <WelcomeText>Seja bem-vindo!</WelcomeText>
       <ButtonContainer>
         <Button

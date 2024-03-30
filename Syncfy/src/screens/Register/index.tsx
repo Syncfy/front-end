@@ -99,7 +99,7 @@ const Register: React.FC<Props> = ({ navigation }) => {
       <BackgroundImage
         source={require('../../assets/images/white-background.png')}>
         <ContentContainer>
-          <Logo source={require('../../assets/images/logo.png')} />
+          <Logo source={require('../../assets/images/utils/logo.png')} />
           <RegisterForm
             email={email}
             setEmail={setEmail}
