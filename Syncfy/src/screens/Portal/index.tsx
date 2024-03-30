@@ -14,7 +14,7 @@ import {
   WelcomeName,
   Categories,
 } from './style';
-import {View, FlatList, Image, Text} from 'react-native';
+import {KeyboardAvoidingView, Platform, ScrollView, View, FlatList, Image, Text} from 'react-native';
 import {SearchButton} from '../../components/SearchButton';
 
 const Portal: React.FC = () => {
@@ -34,6 +34,11 @@ const Portal: React.FC = () => {
   );
 
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <ScrollView>
     <Container>
       <SearchContainer>
         <IconContainer>
@@ -72,6 +77,8 @@ const Portal: React.FC = () => {
       />
       <SearchButton text="Buscar produto" />
     </Container>
+    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

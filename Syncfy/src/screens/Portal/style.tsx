@@ -71,7 +71,8 @@ export const WelcomeName = styled.Text`
 
 export const Categories = styled.Text`
   color: #000000;
-  margin-top: 125px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 12px;
   font-size: 25px;
   font-weight: bold;
