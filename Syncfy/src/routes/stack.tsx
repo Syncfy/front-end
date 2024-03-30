@@ -1,64 +1,65 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {
-  NativeStackNavigationProp,
-  createNativeStackNavigator,
-} from '@react-navigation/native-stack';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 import TabNavigator from '../components/TabNavigator/TabNavigator';
+import { User } from 'firebase/auth'
+
+type StackComponentProps = {
+  user: User | null;
+};
+
 
 const Stack = createNativeStackNavigator();
 
-type StackNavigation = {
-  Home: undefined;
-  Login: undefined;
-};
-
-export type StackTypes = NativeStackNavigationProp<StackNavigation>;
-
-export default function StackComponent() {
+export default function StackComponent({ user }: StackComponentProps) {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          options={{
-            title: '',
-            headerTransparent: true,
-            headerShown: false,
-          }}
-          component={Home}
-        />
-        <Stack.Screen
-          name="Login"
-          options={{
-            title: '',
-            headerTransparent: true,
-            headerShown: false,
-          }}
-          component={Login}
-        />
-        <Stack.Screen
-          name="Cadastro"
-          options={{
-            title: '',
-            headerTransparent: true,
-            headerShown: false,
-          }}
-          component={Register}
-        />
-        <Stack.Screen
-          name="TabNavigator"
-          options={{
-            title: '',
-            headerTransparent: true,
-            headerShown: false,
-            gestureEnabled: false,
-          }}
-          component={TabNavigator}
-        />
+        {user ? (
+          <Stack.Screen
+            name="TabNavigator"
+            component={TabNavigator}
+            options={{
+              title: '',
+              headerTransparent: true,
+              headerShown: false,
+              gestureEnabled: false
+            }}
+          />
+        ) : (
+          <>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{
+                title: '',
+                headerTransparent: true,
+                headerShown: false
+              }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{
+                title: '',
+                headerTransparent: true,
+                headerShown: false
+              }}
+            />
+            <Stack.Screen
+              name="Cadastro"
+              component={Register}
+              options={{
+                title: '',
+                headerTransparent: true,
+                headerShown: false
+              }}
+            />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

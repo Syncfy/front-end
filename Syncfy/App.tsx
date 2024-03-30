@@ -1,25 +1,28 @@
-import React from 'react';
-import StackComponent from './src/routes/stack';
-import {StatusBar} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StatusBar } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { initializeApp } from 'firebase/app';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAOCAQnVmFlUKrMW3o9_opY6KymRQKzTJ8",
-  authDomain: "syncfy-889fe.firebaseapp.com",
-  projectId: "syncfy-889fe",
-  storageBucket: "syncfy-889fe.appspot.com",
-  messagingSenderId: "1060663911675",
-  appId: "1:1060663911675:web:c4ba393e4e05f343993c5e"
-};
+import { User, getAuth, onAuthStateChanged } from 'firebase/auth';
+import StackComponent from './src/routes/stack';
+import { firebaseConfig } from './src/config';
 
 initializeApp(firebaseConfig);
 
 export default function App() {
+    const [user, setUser] = useState<User | null>(null);
+    const auth = getAuth();
+  
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+      });
+      return () => unsubscribe();
+    }, []);
+  
   return (
     <>
       <StatusBar backgroundColor={'#000000'} />
-      <StackComponent />
+      <StackComponent user={user}/>
       <Toast />
     </>
   );
