@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import LoginForm from '../../components/LoginForm';
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import {
   Container,
   ContentContainer,
@@ -9,8 +9,9 @@ import {
   ForgotPasswordText,
 } from './style';
 import Toast from 'react-native-toast-message';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../types/rock-stack-param-list';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../types/rock-stack-param-list';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 type LoginScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -21,21 +22,18 @@ type Props = {
   navigation: LoginScreenNavigationProp;
 };
 
-const Login: React.FC<Props> = ({navigation}) => {
+const Login: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
-  const fakeUser = {
-    email: 'fake@mail.com',
-    password: 'fake1234',
-  };
+  const auth = getAuth();
 
   const handleLogin = () => {
     if (loading) {
       return;
     }
-    // Simples validações
+
     if (!email || !password) {
       Toast.show({
         type: 'error',
@@ -45,36 +43,30 @@ const Login: React.FC<Props> = ({navigation}) => {
       return;
     }
 
-    // Aqui você adicionaria sua lógica de autenticação com o backend
     setLoading(true);
-    // Simulação de chamada de API
-    setTimeout(() => {
-      setLoading(false);
-      // Isto é onde você colocaria a resposta da API
-      /*const success = true;  ou false, baseado na resposta da API */
-      const success =
-        email === fakeUser.email && password === fakeUser.password;
-
-      if (success) {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setLoading(false);
         Toast.show({
           type: 'success',
           text1: 'Sucesso',
           text2: 'Login realizado com sucesso!',
         });
-        // Navegar para a tela Portal
-        navigation.navigate('TabNavigator');
-      } else {
+        navigation.navigate('TabNavigator'); // Supondo que 'TabNavigator' é o próximo passo após o login
+      })
+      .catch((error) => {
+        setLoading(false);
         Toast.show({
           type: 'error',
           text1: 'Erro',
           text2: 'Credenciais inválidas ou erro de servidor.',
         });
-      }
-    }, 150);
+        console.error('Erro de login:', error);
+      });
   };
 
   const handleForgotPassword = () => {
-    // Lógica para esqueci minha senha
+    // Aqui você implementaria a lógica para resetar a senha
     console.log('Usuário clicou em "Esqueci minha senha"');
   };
 

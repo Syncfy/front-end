@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import RegisterForm from '../../components/RegisterForm';
-import {Container, ContentContainer, BackgroundImage, Logo} from './style';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../types/rock-stack-param-list';
+import { Container, ContentContainer, BackgroundImage, Logo } from './style';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../types/rock-stack-param-list';
 import Toast from 'react-native-toast-message';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 type RegisterScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -14,20 +15,20 @@ type Props = {
   navigation: RegisterScreenNavigationProp;
 };
 
-const Register: React.FC<Props> = ({navigation}) => {
+const Register: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [cnpj, setCnpj] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
+  const auth = getAuth();
+
   const isPasswordValid = (password: string) => {
-    // Verifica se a senha tem pelo menos 6 caracteres e contém um caractere maiúsculo
     return password.length >= 6 && /[A-Z]/.test(password);
   };
 
   const handleRegister = () => {
-    // Validações
     if (!email || !password || !confirmPassword || !cnpj) {
       Toast.show({
         type: 'error',
@@ -67,7 +68,34 @@ const Register: React.FC<Props> = ({navigation}) => {
       });
       return;
     }
+
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Usuário cadastrado com sucesso
+        console.log('Usuário cadastrado:', userCredential.user);
+        Toast.show({
+          type: 'success',
+          text1: 'Sucesso',
+          text2: 'Usuário cadastrado com sucesso.',
+        });
+        setLoading(false);
+        navigation.navigate('Login');
+        // Você pode redirecionar o usuário para outra tela aqui
+
+      })
+      .catch((error) => {
+        // Erro ao cadastrar usuário
+        console.error('Erro ao cadastrar usuário:', error);
+        Toast.show({
+          type: 'error',
+          text1: 'Erro ao cadastrar',
+          text2: error.message,
+        });
+        setLoading(false);
+      });
   };
+
   return (
     <Container>
       <BackgroundImage
@@ -84,6 +112,7 @@ const Register: React.FC<Props> = ({navigation}) => {
             cnpj={cnpj}
             setCnpj={setCnpj}
             onRegisterPress={handleRegister}
+            loading={loading}
           />
         </ContentContainer>
       </BackgroundImage>
