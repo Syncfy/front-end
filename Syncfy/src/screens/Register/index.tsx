@@ -81,11 +81,9 @@ const Register: React.FC<Props> = ({ navigation }) => {
         });
         setLoading(false);
         navigation.navigate('Login');
-        // Você pode redirecionar o usuário para outra tela aqui
 
       })
       .catch((error) => {
-        // Erro ao cadastrar usuário
         console.error('Erro ao cadastrar usuário:', error);
         Toast.show({
           type: 'error',

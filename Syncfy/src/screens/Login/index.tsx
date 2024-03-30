@@ -52,7 +52,7 @@ const Login: React.FC<Props> = ({ navigation }) => {
           text1: 'Sucesso',
           text2: 'Login realizado com sucesso!',
         });
-        navigation.navigate('TabNavigator'); // Supondo que 'TabNavigator' é o próximo passo após o login
+        navigation.navigate('TabNavigator');
       })
       .catch((error) => {
         setLoading(false);
