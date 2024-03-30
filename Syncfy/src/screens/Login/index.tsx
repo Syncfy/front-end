@@ -11,7 +11,8 @@ import {
 import Toast from 'react-native-toast-message';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/rock-stack-param-list';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+
 
 type LoginScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -66,9 +67,35 @@ const Login: React.FC<Props> = ({ navigation }) => {
   };
 
   const handleForgotPassword = () => {
-    // Aqui você implementaria a lógica para resetar a senha
-    console.log('Usuário clicou em "Esqueci minha senha"');
-  };
+    if (!email) {
+      Toast.show({
+        type: 'error',
+        text1: 'Erro',
+        text2: 'Por favor, insira seu e-mail para redefinir a senha.',
+      });
+      return;
+    }
+  
+    setLoading(true);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setLoading(false);
+        Toast.show({
+          type: 'success',
+          text1: 'E-mail de redefinição enviado',
+          text2: 'Verifique seu e-mail para redefinir sua senha.',
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        Toast.show({
+          type: 'error',
+          text1: 'Erro',
+          text2: 'Não foi possível enviar o e-mail de redefinição de senha.',
+        });
+        console.error('Erro ao enviar e-mail de redefinição de senha:', error);
+      });
+  };  
 
   return (
     <Container>

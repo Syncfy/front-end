@@ -97,7 +97,7 @@ const Register: React.FC<Props> = ({ navigation }) => {
   return (
     <Container>
       <BackgroundImage
-        source={require('../../assets/images/white-background.png')}>
+        source={require('../../assets/images/utils/white-background.png')}>
         <ContentContainer>
           <Logo source={require('../../assets/images/utils/logo.png')} />
           <RegisterForm

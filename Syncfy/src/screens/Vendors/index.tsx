@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, FlatList, Image} from 'react-native';
 import {styles} from './style';
 import {vendorsData} from '../../components/VendorsCards';
+import { IconContainer, SearchContainer, SearchIcon, SearchInput, ShoppingCartIcon, ShoppingCartIconContainer } from '../Portal/style';
 
 const Vendors: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,13 +22,22 @@ const Vendors: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fornecedores</Text>
-      <TextInput
-        style={styles.searchInput}
-        value={searchQuery}
-        onChangeText={handleSearchChange}
-        placeholder="Procurar fornecedor..."
-      />
+      <SearchContainer>
+        <IconContainer>
+          <SearchIcon source={require('../../assets/icons/search-icon.png')} />
+        </IconContainer>
+        <SearchInput
+          value={searchQuery}
+          onChangeText={handleSearchChange}
+          placeholder="Buscar um fornecedor no Syncfy"
+          clearButtonMode="while-editing"
+        />
+      </SearchContainer>
+      <ShoppingCartIconContainer>
+        <ShoppingCartIcon
+          source={require('../../assets/icons/shopping-cart-icon.png')}
+        />
+      </ShoppingCartIconContainer>
       <FlatList
         data={vendorsData}
         renderItem={renderVendorItem}

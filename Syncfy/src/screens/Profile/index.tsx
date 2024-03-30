@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Alert, TouchableOpacity, View} from 'react-native';
+import React, { useState } from 'react';
+import { Alert, TouchableOpacity, View } from 'react-native';
 import {
   Container,
   UserProfileImage,
@@ -8,23 +8,28 @@ import {
   EditIcon,
   Title,
 } from './style';
-
-import {LogoutButton} from '../../components/LogoutButton';
+import { LogoutButton } from '../../components/LogoutButton';
+import { getAuth, signOut } from 'firebase/auth';
 
 const defaultUserImage = require('../../assets/images/utils/default-profile-image.png');
 const editIcon = require('../../assets/icons/edit-active-icon.png');
 
-const UserPage = ({navigation}) => {
+const UserPage: React.FC<any> = ({ navigation }) => {
   const [name, setName] = useState('Syncfy LTDA');
   const [email, setEmail] = useState('syncfy@orçamentos.com');
   const [phone, setPhone] = useState('(11) 3385-8010');
-  const [address, setAddress] = useState(
-    'Av. Paulista, 1106 - 7º andar - Bela Vista',
-  );
+  const [address, setAddress] = useState('Av. Paulista, 1106 - 7º andar - Bela Vista');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogout = () => {
-    Alert.alert('Logout', 'Você saiu da sua conta.');
-    navigation.navigate('Home');
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      Alert.alert('Logout', 'Você saiu da sua conta.');
+      navigation.navigate('Home'); 
+    }).catch((error) => {
+      console.error('Erro ao fazer logout:', error);
+      Alert.alert('Logout falhou', 'Não foi possível fazer logout.');
+    });
   };
 
   // Função para lidar com a edição do campo
