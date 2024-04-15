@@ -1,6 +1,6 @@
 // History.js
 import React, { useState } from 'react';
-import {ScrollView, View, Image} from 'react-native';
+import {ScrollView, View } from 'react-native';
 import {styles, historyData} from './style';
 import HistoryCard from '../../components/HistoryCard';
 import { IconContainer, SearchContainer, SearchIcon, SearchInput, ShoppingCartIcon, ShoppingCartIconContainer } from '../Portal/style';

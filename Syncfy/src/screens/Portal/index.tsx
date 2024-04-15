@@ -22,7 +22,6 @@ const Portal: React.FC = () => {
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
-    // Logic to handle search
   };
 
   const renderCarouselItem = ({item}) => (

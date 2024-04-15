@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, FlatList, Image} from 'react-native';
+import {View, Text, FlatList, Image} from 'react-native';
 import {styles} from './style';
 import {vendorsData} from '../../components/VendorsCards';
 import { IconContainer, SearchContainer, SearchIcon, SearchInput, ShoppingCartIcon, ShoppingCartIconContainer } from '../Portal/style';

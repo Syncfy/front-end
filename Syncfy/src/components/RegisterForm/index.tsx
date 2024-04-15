@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Input} from './style';
 import {RegisterButton} from '../RegisterButton';
-import {Text} from './style';
 
 type RegisterFormProps = {
   companyName: string;
