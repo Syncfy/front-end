@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
 import {styles} from './style';
 import {vendorsData} from '../../components/VendorsCards';
-import { IconContainer, SearchContainer, SearchIcon, SearchInput, ShoppingCartIcon, ShoppingCartIconContainer } from '../Portal/style';
+import { IconContainer, SearchContainer, SearchIcon, SearchInput } from '../Portal/style';
 
 const Vendors: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -33,11 +33,6 @@ const Vendors: React.FC = () => {
           clearButtonMode="while-editing"
         />
       </SearchContainer>
-      <ShoppingCartIconContainer>
-        <ShoppingCartIcon
-          source={require('../../assets/icons/shopping-cart-icon.png')}
-        />
-      </ShoppingCartIconContainer>
       <FlatList
         data={vendorsData}
         renderItem={renderVendorItem}
