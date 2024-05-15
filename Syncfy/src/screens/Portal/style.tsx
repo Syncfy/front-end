@@ -67,6 +67,18 @@ export const Categories = styled.Text`
 `;
 
 export const styles = StyleSheet.create({
+  
+loadingText: {
+  marginTop: 20,
+  color: 'white',
+  fontSize: 18
+},
+  loadingOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'  // Semi-transparent overlay
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
