@@ -4,4 +4,5 @@ export type RootStackParamList = {
   Cadastro: undefined;
   Portal: undefined;
   TabNavigator: undefined;
+  Results: { products: any[] };  // Definindo que 'Results' espera 'products' como parâmetro
 };
