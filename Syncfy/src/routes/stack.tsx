@@ -6,6 +6,7 @@ import Login from '../screens/Login';
 import Register from '../screens/Register';
 import TabNavigator from '../components/TabNavigator/TabNavigator';
 import { User } from 'firebase/auth'
+import Results from '../screens/Result';
 
 type StackComponentProps = {
   user: User | null;
@@ -20,17 +21,17 @@ export default function StackComponent({ user }: StackComponentProps) {
       <Stack.Navigator>
         {user ? (
           <Stack.Screen
-            name="TabNavigator"
-            component={TabNavigator}
-            options={{
-              title: '',
+          name="TabNavigator"
+          component={TabNavigator}
+          options={{
+            title: '',
               headerTransparent: true,
               headerShown: false,
               gestureEnabled: false
             }}
-          />
-        ) : (
-          <>
+            />
+          ) : (
+            <>
             <Stack.Screen
               name="Home"
               component={Home}
@@ -52,6 +53,24 @@ export default function StackComponent({ user }: StackComponentProps) {
             <Stack.Screen
               name="Cadastro"
               component={Register}
+              options={{
+                title: '',
+                headerTransparent: true,
+                headerShown: false
+              }}
+            />
+            <Stack.Screen
+              name="Portal"
+              component={Register}
+              options={{
+                title: '',
+                headerTransparent: true,
+                headerShown: false
+              }}
+            />
+            <Stack.Screen
+              name="Results"
+              component={Results}
               options={{
                 title: '',
                 headerTransparent: true,
