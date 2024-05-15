@@ -6,7 +6,7 @@ import Login from '../screens/Login';
 import Register from '../screens/Register';
 import TabNavigator from '../components/TabNavigator/TabNavigator';
 import { User } from 'firebase/auth'
-import Results from '../screens/Result';
+import Pesquisa from '../screens/Result';
 
 type StackComponentProps = {
   user: User | null;
@@ -69,8 +69,8 @@ export default function StackComponent({ user }: StackComponentProps) {
               }}
             />
             <Stack.Screen
-              name="Results"
-              component={Results}
+              name="Pesquisa"
+              component={Pesquisa}
               options={{
                 title: '',
                 headerTransparent: true,
