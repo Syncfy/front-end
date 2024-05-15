@@ -62,7 +62,7 @@ const Portal: React.FC<Props> = ({ navigation }) => {
         });
         setProducts([]);
       } else {
-        navigation.navigate('Results', { products: data });
+        navigation.navigate('Pesquisa', { products: data });
       }
     } catch (error: any) {
       console.error('Erro ao buscar produtos:', error);
