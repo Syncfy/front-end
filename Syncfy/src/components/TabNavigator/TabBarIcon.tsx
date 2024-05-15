@@ -18,6 +18,11 @@ const TabBarIconComponent: React.FC<TabBarIconProps> = ({
         ? require('../../assets/icons/home-active-icon.png')
         : require('../../assets/icons/home-icon.png');
       break;
+    case 'Pesquisa':
+      iconName = focused
+        ? require('../../assets/icons/search-active-icon.png')
+        : require('../../assets/icons/search-icon.png');
+      break;
     case 'Fornecedores':
       iconName = focused
         ? require('../../assets/icons/vendors-active-icon.png')
