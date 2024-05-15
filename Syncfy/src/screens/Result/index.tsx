@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View, Text, FlatList, Image, StyleSheet, TextInput, ScrollView,
 } from 'react-native';
@@ -17,10 +17,14 @@ const Pesquisa = () => {
     );
   }
 
+  const formatTitle = (title) => {
+    return title.length > 8 ? `${title.substring(0, 40)}...` : title;
+  };
+
   const renderProductItem = ({ item }) => (
     <View style={styles.card}>
       <Image source={{ uri: item.image }} style={styles.cardImage} />
-      <Text style={styles.cardTitle}>{item.name}</Text>
+      <Text style={styles.cardTitle}>{formatTitle(item.name)}</Text>
       <Text style={styles.cardSubtitle}>{`Preço: ${item.actual_price}`}</Text>
     </View>
   );
@@ -28,29 +32,29 @@ const Pesquisa = () => {
   return (
     <ScrollView style={styles.container}>
       <SearchContainer>
-            <IconContainer>
-              <SearchIcon source={require('../../assets/icons/search-icon.png')} />
-            </IconContainer>
-            <TextInput            
-            clearButtonMode="while-editing"
-            returnKeyType="search" // Muda o botão "enter" para "search"
-            placeholder="Buscar um produto no Syncfy"
-              style={{
-                flex: 1,
-                paddingHorizontal: 40,
-                paddingVertical: 8,
-                borderRadius: 22,
-                fontSize: 16,
-                backgroundColor: '#ffffff',
-                marginLeft: 1,
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.1,
-                shadowRadius: 2,
-                elevation: 2,
-              }}
-            />
-          </SearchContainer>
+        <IconContainer>
+          <SearchIcon source={require('../../assets/icons/search-icon.png')} />
+        </IconContainer>
+        <TextInput            
+          clearButtonMode="while-editing"
+          returnKeyType="search"
+          placeholder="Buscar um produto no Syncfy"
+          style={{
+            flex: 1,
+            paddingHorizontal: 40,
+            paddingVertical: 8,
+            borderRadius: 22,
+            fontSize: 16,
+            backgroundColor: '#ffffff',
+            marginLeft: 1,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 2,
+            elevation: 2,
+          }}
+        />
+      </SearchContainer>
       <FlatList
         data={products}
         renderItem={renderProductItem}
