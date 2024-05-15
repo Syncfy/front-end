@@ -9,7 +9,7 @@ import {
   WelcomeName,
   Categories,
 } from './style';
-import { KeyboardAvoidingView, Platform, ScrollView, View, FlatList, Image, Text, ActivityIndicator, TextInput } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, View, FlatList, Image, Text, ActivityIndicator, TextInput, Modal } from 'react-native';
 import { SearchButton } from '../../components/SearchButton';
 import Toast from 'react-native-toast-message';
 import { carouselData } from '../../components/PortalCarolseu';
@@ -110,6 +110,14 @@ const Portal: React.FC<Props> = ({ navigation }) => {
               }}
             />
           </SearchContainer>
+          {loading && (
+  <Modal transparent={true} animationType="none">
+    <View style={styles.loadingOverlay}>
+      <ActivityIndicator size="large" color="#52d974" />
+      <Text style={styles.loadingText}>Pesquisando...</Text>
+    </View>
+  </Modal>
+)}
           <WelcomeText>
             Bem vindo, <WelcomeName>Victor</WelcomeName>
           </WelcomeText>
@@ -135,22 +143,6 @@ const Portal: React.FC<Props> = ({ navigation }) => {
             snapToAlignment="center"
             pagingEnabled
           />
-          {loading ? (
-            <ActivityIndicator size="large" color="#0000ff" />
-          ) : (
-            products.length > 0 && (
-              <FlatList
-                data={products}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                  <View style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ccc' }}>
-                    <Text style={{ fontSize: 18 }}>{item.name}</Text>
-                    <Text>{item.description}</Text>
-                  </View>
-                )}
-              />
-            )
-          )}
           <SearchButton text="Buscar produto" onPress={handleSearch} />
         </Container>
       </ScrollView>
