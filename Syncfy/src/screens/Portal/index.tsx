@@ -9,14 +9,25 @@ import {
   WelcomeName,
   Categories,
 } from './style';
-import { KeyboardAvoidingView, Platform, ScrollView, View, FlatList, Image, Text, ActivityIndicator } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, View, FlatList, Image, Text, ActivityIndicator, TextInput } from 'react-native';
 import { SearchButton } from '../../components/SearchButton';
 import Toast from 'react-native-toast-message';
 import { carouselData } from '../../components/PortalCarolseu';
 import { styless } from '../../components/PortalCarolseu/style';
-import { TextInput } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import axios from 'axios';
+import { RootStackParamList } from '../../types/rock-stack-param-list';
 
-const Portal: React.FC = () => {
+type RegisterScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Portal'
+>;
+
+type Props = {
+  navigation: RegisterScreenNavigationProp;
+};
+
+const Portal: React.FC<Props> = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,7 +35,7 @@ const Portal: React.FC = () => {
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
   };
-
+  
   const handleSearch = async () => {
     if (searchQuery.trim() === '') {
       Toast.show({
@@ -34,13 +45,16 @@ const Portal: React.FC = () => {
       });
       return;
     }
-
+  
     setLoading(true);
+    const url = `https://7654-187-51-16-18.ngrok-free.app/busca?query=${encodeURIComponent(searchQuery)}`;
+    console.log('Fetching URL:', url);
     try {
-      const response = await fetch(`https://api.yoursite.com/products?query=${encodeURIComponent(searchQuery)}`);
-      const data = await response.json();
-
-      if (data.length === 0) {
+      const response = await axios.get(url);
+      const data = response.data.produtosEncontrados;
+      console.log('Data received:', data);
+  
+      if (!data || data.length === 0) {
         Toast.show({
           type: 'info',
           text1: 'Nenhum produto encontrado',
@@ -48,14 +62,14 @@ const Portal: React.FC = () => {
         });
         setProducts([]);
       } else {
-        setProducts(data);
+        navigation.navigate('Results', { products: data });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erro ao buscar produtos:', error);
       Toast.show({
         type: 'error',
         text1: 'Erro ao buscar',
-        text2: 'Não foi possível realizar a busca.',
+        text2: `Não foi possível realizar a busca: ${error.message}`,
       });
     } finally {
       setLoading(false);
@@ -78,8 +92,8 @@ const Portal: React.FC = () => {
               onChangeText={handleSearchChange}
               placeholder="Buscar um produto no Syncfy"
               clearButtonMode="while-editing"
-              onSubmitEditing={handleSearch}  // Adicionado para lidar com o "enter" no teclado
-              returnKeyType="search"  // Muda o botão "enter" para "search"
+              onSubmitEditing={handleSearch} // Adicionado para lidar com o "enter" no teclado
+              returnKeyType="search" // Muda o botão "enter" para "search"
               style={{
                 flex: 1,
                 paddingHorizontal: 40,
@@ -137,7 +151,7 @@ const Portal: React.FC = () => {
               />
             )
           )}
-          <SearchButton text="Buscar produto"/>
+          <SearchButton text="Buscar produto" onPress={handleSearch} />
         </Container>
       </ScrollView>
     </KeyboardAvoidingView>
