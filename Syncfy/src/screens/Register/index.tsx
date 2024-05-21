@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import RegisterForm from '../../components/RegisterForm';
 import { Container, ContentContainer, BackgroundImage, Logo } from './style';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -28,7 +29,7 @@ const Register: React.FC<Props> = ({ navigation }) => {
     return password.length >= 6 && /[A-Z]/.test(password);
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (!email || !password || !confirmPassword || !cnpj) {
       Toast.show({
         type: 'error',
@@ -56,48 +57,56 @@ const Register: React.FC<Props> = ({ navigation }) => {
       return;
     }
 
-    if (
-      password !== confirmPassword &&
-      (!isPasswordValid(password) || !isPasswordValid(confirmPassword))
-    ) {
+    if (password !== confirmPassword || !isPasswordValid(password)) {
       Toast.show({
         type: 'error',
         text1: 'Erro',
-        text2:
-          'A senha e a confirmação de senha devem ser iguais e atender aos critérios de senha.',
+        text2: 'A senha e a confirmação de senha devem ser iguais e atender aos critérios de senha.',
       });
       return;
     }
 
     setLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Usuário cadastrado com sucesso
-        console.log('Usuário cadastrado:', userCredential.user);
-        Toast.show({
-          type: 'success',
-          text1: 'Sucesso',
-          text2: 'Usuário cadastrado com sucesso.',
-        });
-        setLoading(false);
-        navigation.navigate('Login');
-
-      })
-      .catch((error) => {
-        console.error('Erro ao cadastrar usuário:', error);
-        Toast.show({
-          type: 'error',
-          text1: 'Erro ao cadastrar',
-          text2: error.message,
-        });
-        setLoading(false);
+    try {
+      await axios.post('http://192.168.0.57:8081/register', {
+        email,
+        password,
+        cnpj
       });
+      Toast.show({
+        type: 'success',
+        text1: 'Sucesso',
+        text2: 'Usuário cadastrado com sucesso via API.',
+      });
+      navigation.navigate('Login');
+    } catch (error) {
+      console.log('Fallback to Firebase registration due to API failure:', error);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log('Usuário cadastrado via Firebase:', userCredential.user);
+          Toast.show({
+            type: 'success',
+            text1: 'Sucesso',
+            text2: 'Usuário cadastrado com sucesso via Firebase.',
+          });
+          navigation.navigate('Login');
+        })
+        .catch((firebaseError) => {
+          console.error('Erro ao cadastrar usuário via Firebase:', firebaseError);
+          Toast.show({
+            type: 'error',
+            text1: 'Erro ao cadastrar',
+            text2: firebaseError.message,
+          });
+        });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Container>
-      <BackgroundImage
-        source={require('../../assets/images/utils/white-background.png')}>
+      <BackgroundImage source={require('../../assets/images/utils/white-background.png')}>
         <ContentContainer>
           <Logo source={require('../../assets/images/utils/logo.png')} />
           <RegisterForm
