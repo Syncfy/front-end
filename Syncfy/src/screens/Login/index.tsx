@@ -13,6 +13,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/rock-stack-param-list';
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 
+
 type LoginScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Login'
@@ -58,10 +59,8 @@ const Login: React.FC<Props> = ({ navigation }) => {
         setLoading(false);
         Toast.show({
           type: 'error',
-          text1: 'Erro ao tentar login',
-          text2: 'Credenciais inválidas ou erro de servidor. Tente novamente.',
-          onPress: handleLogin, // Permite nova tentativa de login diretamente do Toast
-          visibilityTime: 8000 // Mantém o Toast visível por 8 segundos
+          text1: 'Erro',
+          text2: 'Credenciais inválidas ou erro de servidor.',
         });
         console.error('Erro de login:', error);
       });
